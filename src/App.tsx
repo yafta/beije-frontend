@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./style/App.css";
+import React, { lazy, Suspense } from "react";
+import Layout from "view/components/Layout";
+import SplashScreen from "view/components/SplashScreen";
+import { Routes, Route } from "react-router-dom";
+
+// Lazy load pages for better performance
+const LoginPage = lazy(() => import("view/pages/Login"));
+const PacketsPage = lazy(() => import("view/pages/Packets"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<SplashScreen />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="login" index element={<LoginPage />} />
+          <Route path="packets" element={<PacketsPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 
