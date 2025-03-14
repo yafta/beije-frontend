@@ -8,7 +8,7 @@ function Layout() {
   return (
     <div className="App-layout">
       <Navbar />
-      <Box sx={{ width: "100%", background: "red" }}>
+      <Box sx={{ width: "100%" }}>
         <Outlet />
       </Box>
       <Footer />

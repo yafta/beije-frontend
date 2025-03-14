@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "assets/logo.svg";
+import BeijeIcon from "assets/BeijeIcon";
 import NavbarButton from "./NavbarButton";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function Navbar() {
       <AppBar position="sticky" sx={{ background: "#F7F6F5", paddingX: "10%", boxShadow: "none" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <div className="Navbar-button" onClick={() => navigate("/login")}>
-            <img src={logo} className="Logo" alt="logo" />
+            <BeijeIcon color="#CE7328" />
           </div>
           {!isMobile && (
             <Box sx={{ display: "flex", gap: "32px" }}>
@@ -41,6 +41,7 @@ export default function Navbar() {
             background: "#f7f6f5",
             borderRadius: 0,
             boxShadow: 4,
+            zIndex: 99,
           }}>
           <p>Content</p>
         </Paper>

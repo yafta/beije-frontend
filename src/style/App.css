@@ -43,9 +43,92 @@
   padding-top: 18px;
 }
 
+.Footer {
+  width: "100%";
+  position: relative;
+  gap: 48px;
+  color: #ffffff;
+}
+
+.Footer-content {
+  width: "100%";
+  background-color: #262626;
+  padding-top: 80px;
+  padding-right: 144px;
+  padding-bottom: 80px;
+  padding-left: 144px;
+  gap: 48px;
+  color: #ffffff;
+}
+
+.icon {
+  color: "#FFFFFF70";
+}
+
+.subtitle {
+  font-family: "Gordita";
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff70;
+}
+
+.body2 {
+  font-family: "Gordita";
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff70;
+}
+
+.buttonSmall {
+  cursor: pointer;
+  font-family: "Gordita";
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff80;
+}
+
+.buttonSmall:hover {
+  text-decoration: underline;
+}
+
+.footerLegal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerLink {
+  cursor: pointer;
+  font-family: "Gordita";
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+.footerLinkIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-family: "Gordita";
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+.buttonFont {
+  font-weight: "bold";
+  font-size: 16px;
+  line-height: 4px;
+}
+
 @font-face {
   font-family: "Gordita";
   src: url("/src/assets/font/Gordita-Regular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
 }
