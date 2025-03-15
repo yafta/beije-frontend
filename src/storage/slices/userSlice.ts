@@ -1,28 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 interface UserState {
-  value: number;
+  token: string;
 }
 
 const initialState: UserState = {
-  value: 0,
+  token: "",
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    updateToken: (state, action) => {
+      state.token = action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions;
+export const selectToken = createSelector(
+  (state: any) => state.user,
+  (user: UserState) => user.token
+);
+
+export const { updateToken } = userSlice.actions;
 export default userSlice.reducer;

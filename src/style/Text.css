@@ -9,7 +9,12 @@
   font-family: "Gordita";
   font-weight: 400;
   font-size: 16px;
-  margin: 0;
+}
+
+.subHeader {
+  font-family: "Gordita-Medium";
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .subtitle {
@@ -61,6 +66,15 @@
 }
 
 .footerLink:hover {
+  text-decoration: underline;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link:hover {
   text-decoration: underline;
 }
 
