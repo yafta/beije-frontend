@@ -1,4 +1,5 @@
 import "./style/App.css";
+import "./style/Text.css";
 import React, { lazy, Suspense } from "react";
 import Layout from "view/components/Layout";
 import SplashScreen from "view/components/SplashScreen";
