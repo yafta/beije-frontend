@@ -22,7 +22,7 @@ export default function Footer() {
         />
       </svg>
       <div className="Footer-content">
-        <Container maxWidth={"xl"}>
+        <Container maxWidth="lg">
           <Grid container spacing={16}>
             <Grid item xs={12} md={6} sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
               <div>

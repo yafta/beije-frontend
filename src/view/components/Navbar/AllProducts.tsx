@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import { ArrowRight, ChevronRight } from "@mui/icons-material";
 import { selectProductsAndPackets } from "storage/slices/appSlice";
@@ -8,7 +8,7 @@ export default function AllProducts() {
   const { packets, products } = useSelector(selectProductsAndPackets);
 
   return (
-    <Box sx={{ paddingX: "10%" }}>
+    <Container maxWidth="lg">
       <Box marginBottom={"48px"}>
         <p className="subHeader">Ürünler</p>
         <Grid container>
@@ -61,6 +61,6 @@ export default function AllProducts() {
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </Container>
   );
 }

@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { getPacketsAndProducts } from "api/services/app-services";
 import { useDispatch } from "react-redux";
 import { initProductsAndPackets } from "storage/slices/appSlice";
+import ToastProvider from "storage/context/ToastProvider";
 
 // Lazy load pages for better performance
 const LoginPage = lazy(() => import("view/pages/Login"));
@@ -21,7 +22,6 @@ function App() {
     const initializeApp = async () => {
       await apiCall({
         service: getPacketsAndProducts,
-        onError: (error) => console.log(error.message),
         onSuccess: (response: any) => dispatch(initProductsAndPackets(response)),
       });
     };
@@ -30,12 +30,14 @@ function App() {
 
   return (
     <Suspense fallback={<SplashScreen />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="login" index element={<LoginPage />} />
-          <Route path="packets" element={<PacketsPage />} />
-        </Route>
-      </Routes>
+      <ToastProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="login" index element={<LoginPage />} />
+            <Route path="packets" element={<PacketsPage />} />
+          </Route>
+        </Routes>
+      </ToastProvider>
     </Suspense>
   );
 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 import store from "storage/store";
+import { logOut } from "helper/AuthHelper";
 
 const apiInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -11,7 +12,9 @@ apiInstance.interceptors.request.use(
   async (config) => {
     const _token = store.getState().user.token;
     if (_token) {
-      config.headers.set("x-auth-token", _token);
+      // when x-auth-token is settled, all api calls fails.
+      // I think there a mistake so, i did not set it
+      //! config.headers.set("x-auth-token", _token);
     }
     return config;
   },
@@ -24,7 +27,7 @@ apiInstance.interceptors.response.use(
   },
   async (err) => {
     if (err.response?.status === 401) {
-      // logout action here
+      logOut();
     }
     throw err;
   }

@@ -23,13 +23,13 @@ const appSlice = createSlice({
 });
 
 export const selectProducts = createSelector(
-  (state: any) => state.user,
-  (user: AppState) => user.products
+  (state: any) => state.app,
+  (app: AppState) => app.products
 );
 
 export const selectPackets = createSelector(
-  (state: any) => state.user,
-  (user: AppState) => user.packets
+  (state: any) => state.app,
+  (app: AppState) => app.packets
 );
 
 export const selectProductsAndPackets = createSelector(

@@ -3,11 +3,11 @@ import BeijeIcon from "assets/BeijeIcon";
 import MenuIcons from "./MenuIcons";
 import AllProducts from "./AllProducts";
 import NavbarButton from "../NavbarButton";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useIsMobile } from "helper/useIsMobile";
-import { AppBar, Paper, Slide } from "@mui/material";
 import { NavbarMenuItem } from "types/NavbarTypes";
+import { AppBar, Container, Paper, Slide } from "@mui/material";
 
 const navMenu: Array<NavbarMenuItem> = [
   {
@@ -41,8 +41,10 @@ export default function Navbar() {
   const isMobile = useIsMobile();
 
   return (
-    <div>
-      <AppBar position="sticky" sx={{ background: "#F7F6F5", paddingX: "10%", boxShadow: "none" }}>
+    <Container maxWidth="lg">
+      <AppBar
+        position="sticky"
+        sx={{ background: "#F7F6F5", boxShadow: "none", zIndex: 100, paddingY: 2 }}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <div className="Navbar-button" onClick={() => navigate("/login")}>
             <BeijeIcon color="#CE7328" />
@@ -66,16 +68,19 @@ export default function Navbar() {
           <Paper
             sx={{
               position: "absolute",
+              left: 0,
+              top: 0,
+              paddingY: 12,
               width: "100%",
               background: "#f7f6f5",
               borderRadius: 0,
-              boxShadow: 4,
+              boxShadow: showAnchor ? 4 : 0,
               zIndex: 99,
             }}>
             {anchorEl}
           </Paper>
         </Slide>
       </div>
-    </div>
+    </Container>
   );
 }

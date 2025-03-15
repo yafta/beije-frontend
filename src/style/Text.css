@@ -11,6 +11,14 @@
   font-size: 16px;
 }
 
+.noMargin {
+  margin: 0;
+}
+
+.Gordita-Medium {
+  font-family: "Gordita-Medium";
+}
+
 .subHeader {
   font-family: "Gordita-Medium";
   font-weight: 500;
@@ -24,11 +32,60 @@
   color: #ffffff70;
 }
 
+.subtitle2 {
+  font-family: "Gordita";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: -1%;
+}
+
+.subtitle-dark {
+  font-family: "Gordita-Medium";
+  font-weight: 500;
+  font-size: 16px;
+  color: #343131;
+}
+
+.body1 {
+  font-family: "Gordita";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: -1%;
+  vertical-align: middle;
+}
+
 .body2 {
   font-family: "Gordita";
   font-weight: 400;
   font-size: 14px;
   color: #ffffff70;
+}
+
+.body2-bold {
+  font-family: "Gordita-Medium";
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff70;
+}
+
+.subProduct {
+  font-family: "Gordita";
+  font-weight: 400;
+  font-size: 14px;
+  color: #343131;
+}
+
+.subProductPrice {
+  font-family: "Gordita-Medium";
+  font-weight: 400;
+  font-size: 14px;
+  color: #343131;
+}
+
+.muted {
+  color: #00000099;
 }
 
 .darkLink {
@@ -86,6 +143,25 @@
 
 .center {
   text-align: center;
+}
+
+.SubHeading {
+  font-family: "Gordita-Medium";
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 130%;
+  letter-spacing: -3%;
+}
+.Medium-18 {
+  font-family: "Gordita-Medium";
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: -1.5%;
+}
+
+.badgeCount {
+  color: #fff;
+  font-size: 12px;
 }
 
 @font-face {

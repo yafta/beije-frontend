@@ -19,3 +19,12 @@ export type Packet = {
   image: string;
   title: string;
 };
+
+export type CustomProduct = {
+  _id: string;
+  parentId: string;
+  parentName: string;
+  count: number;
+  price: number;
+  name: string;
+};

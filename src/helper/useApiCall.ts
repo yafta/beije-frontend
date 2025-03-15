@@ -1,3 +1,4 @@
+import { useToast } from "storage/context/ToastProvider";
 import { useState, useCallback, useRef, useEffect } from "react";
 
 type ApiCallProps = {
@@ -9,44 +10,44 @@ type ApiCallProps = {
   errorMessage?: string;
 };
 
-const apiCaller = async (props: ApiCallProps) => {
+export const apiCaller = async (props: ApiCallProps & { showToast?: Function }) => {
   try {
     const response = await props.service(props.params);
     const isSuccess = response?.data?.success || response?.status === 200;
-
     if (isSuccess) {
       props.onSuccess?.(response?.data?.data);
       return response?.data?.data;
     }
-
-    throw new Error(response?.data?.message || "Unknown error");
+    return new Error(response?.data?.message || "Unknown error");
   } catch (error: any) {
-    props.onError?.(error);
-
-    if (props.showToastOnError) {
-      // showToast("error", props.errorMessage || "Ops!", error?.message);
+    props.onError?.(error?.response);
+    if (props.showToastOnError && typeof props.showToast === "function") {
+      props.showToast(props.errorMessage || "Ops!");
     }
-
-    throw error;
+    return error;
   }
 };
 
 const useApiCall = () => {
+  const { showToast } = useToast();
   const [serviceLoad, setServiceLoad] = useState(0);
   const isMounted = useRef(true);
 
   // Ensures stable function reference
-  const apiCall = useCallback(async (props: ApiCallProps) => {
-    setServiceLoad((prev) => prev + 1);
+  const apiCall = useCallback(
+    async (props: ApiCallProps) => {
+      setServiceLoad((prev) => prev + 1);
 
-    try {
-      return await apiCaller(props);
-    } finally {
-      if (isMounted.current) {
-        setServiceLoad((prev) => (prev > 0 ? prev - 1 : 0));
+      try {
+        return await apiCaller({ ...props, showToast });
+      } finally {
+        if (isMounted.current) {
+          setServiceLoad((prev) => (prev > 0 ? prev - 1 : 0));
+        }
       }
-    }
-  }, []);
+    },
+    [showToast]
+  );
 
   // Cleanup effect to avoid state updates on unmounted component
   useEffect(() => {
